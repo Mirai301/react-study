@@ -1,0 +1,43 @@
+# GitHub
+GitHubにpushする際はnode_modulesを除外する
+
+# 関数の作成
+return内の処理にhtmlを使用する場合､タグ単独では動作せず<div>(省略系：<>)等で囲む必要がある｡
+javascriptを記述したい場合は､{}で囲んで記述する｡
+
+# コンポーネント
+特定の処理を他のファイルからimportして利用できるように､別途ファイルを作成しexportする事が基本｡
+
+コンポーネントファイルは拡張子をjsx,
+それ以外のjsファイルは拡張子をjsにすることで見分けやすくなる｡
+
+# 記法
+## html
+
+## javascript
+### onclick処理
+```
+// ボタンを押した時に実行する関数を定義
+const onClickButton = ()  => {
+    alert();
+};
+
+return (
+    <>
+    {console.log("TEST")}
+    <h1>こんにちは！</h1>
+    <p>お元気ですか？</p>
+    <button onClick={onClickButton}>ボタン</button>
+    </>
+);
+```
+
+## css
+### 直書き
+style={{ CSS処理 }}
+### constで宣言した処理を適用
+style={ 関数名 }
+
+### フォントサイズ変更
+エラー：font-size
+OK！：fontSize
