@@ -1,0 +1,190 @@
+.App {
+  text-align: center;
+}
+body {
+  padding: 0%;
+  margin: 0%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+nav {
+  margin: 0;
+  width: 100%;
+  height: 80px;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  margin: 10px;
+  font-size: 25px;
+}
+
+.createPostPage {
+  width: 100%;
+  height: calc(100vh - 80px);
+  display: grid;
+  place-items: center;
+}
+
+.cpContainer {
+  width: 500px;
+  height: auto;
+  padding: 20px;
+  background-color: black;
+  border-radius: 12px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.cpContainer h1 {
+  text-align: center;
+}
+
+.cpContainer label {
+  font-size: 25px;
+}
+.cpContainer .inputGp {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.inputGp input,
+.inputGp textarea {
+  font-size: 18px;
+  border: none;
+  border-radius: 2px;
+  padding: 5px;
+}
+
+.inputGp input {
+  height: 40px;
+}
+.inputGp textarea {
+  height: 150px;
+}
+
+.cpContainer button {
+  margin-top: 20px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+input,
+textarea {
+  margin-top: 5px;
+}
+
+.loginPage {
+  width: 100vw;
+  height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginPage p {
+  font-size: 30px;
+}
+
+/* TWITTER BUTTOn */
+.login-with-google-btn {
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  padding: 5px 16px 12px 42px;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.25);
+  color: #757575;
+  font-size: 20px;
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgd2lkdGg9IjY0cHgiIGhlaWdodD0iNjRweCI+PHBhdGggZmlsbD0iIzM3ZDBlZSIgZD0iTTU2Ljc0MiwxNy4xNDljLTEuMzU4LDAuNDY1LTIuODI3LDAuNzI3LTQuMzc0LDAuOTAyYzEuNTI1LTAuNzU5LDIuNTgtMS44NzcsMy41NjYtMy4yNDYgYzAuNTY0LTAuNzgzLTAuMzEtMS44MDctMS4xNzktMS4zODZjLTEuNTQ1LDAuNzQ4LTMuMDM4LDEuMzA0LTQuOTE4LDEuNjI0Yy0xLjgzOS0xLjY1My00LjI2My0yLjY2NS02LjkzMi0yLjY2NSBjLTMuODc3LDAtNy4yNTUsMi4xMjMtOS4wMjgsNS4yNjRjLTAuODU4LDEuNTA5LTEuMzQ5LDMuMjU1LTEuMzQ5LDUuMTEzYzAsMC42MzksMC4wNzcsMS4yNTcsMC4xODgsMS44NjMgYy04LjMzOS0wLjI0OC0xNS4zMjgtNC41NTQtMTkuMzA1LTkuOTdjLTAuNDQyLTAuNjAxLTEuMzY0LTAuNDczLTEuNjM4LDAuMjIxYy0wLjQyMiwxLjA2Ny0wLjk0MywyLjIyNS0wLjk0Myw0LjExMiBjMCwwLjExMywwLDAuMjE3LDAuMDA5LDAuMzIxYzAuMDM4LDEuMjI2LDAuMzExLDIuMzk2LDAuNzgzLDMuNDUzYzAuODg3LDIuMDQ3LDIuNDkxLDMuNzE3LDQuNSw0LjY5OCBjLTAuMTg5LDAuMDA5LTAuMzc3LDAuMDE5LTAuNTc1LDAuMDE5Yy0xLjg4NywwLTIuNTA4LTAuNjQ2LTMuNTMxLTAuOTEyYy0wLjY0NC0wLjE2OC0xLjI3NCwwLjM3LTEuMTc2LDEuMDI4IGMwLjMwOSwyLjA5NSwxLjQsNC4zMDEsMi44NTgsNS43MDVjMS41NjYsMS41MjgsMy42NiwyLjUwOSw1Ljk5MSwyLjY1MWMtMS4yNDQsMC42MTMtMi42NSwwLjk2Mi00LjE0MSwwLjk2MmgtMC45NDMgYy0wLjcxMywwLTEuMTU4LDAuNzU1LTAuODM2LDEuMzkxYzEuNTgyLDMuMTI5LDUuMjQ2LDUuMjE3LDkuMTcyLDUuMjA0Yy0zLjc4MywyLjM4NS04LjI1LDMuNzgzLTEzLjA1MywzLjc4M0g4Ljk0MyBDOC40MjMsNDcuMjgzLDgsNDcuNzA2LDgsNDguMjI2YzAsMC40MzIsMC4yOTYsMC43ODEsMC42OTIsMC44OTJsLTAuMDAyLDAuMDE2YzAsMCw3LjEwNCwyLjg2NSwxNS4zNDcsMi44NjUgYzE1Ljk3MiwwLDI4Ljk1My0xMi44MDIsMjkuMjM2LTI4LjcwN2MwLjAwOS0wLjE3OSwwLjAwOS0wLjM1OCwwLjAwOS0wLjUzOHMwLTAuMzU4LTAuMDA5LTAuNTM4IGMtMC4wMTMtMC4yNTktMC4wNDUtMC41MTQtMC4wNzctMC43NjljMS43NDYtMC41NTYsMy4zMDEtMS40Nyw0LjUzOS0yLjc2QzU4LjQxNywxNy45NzcsNTcuNjc0LDE2LjgzLDU2Ljc0MiwxNy4xNDl6Ii8+PGVsbGlwc2UgY3g9IjI3IiBjeT0iNjEiIG9wYWNpdHk9Ii4zIiByeD0iMTkiIHJ5PSIzIi8+PHBhdGggZD0iTTUzLjE4LDI1LjA2QzUyLjAxLDQwLjE0LDM5LjQxLDUyLDI0LjA0LDUyYy0xLjczLDAtMy40MS0wLjEzLTQuOTgtMC4zMyBjMC4xNi0yLjYxLDIuMzMtNC42Nyw0Ljk4LTQuNjdjMTEuMSwwLDIwLjc2LTcuNSwyMy40OS0xOC4yM0M0OC4xNywyNi4yMyw1MC42NCwyNC42NSw1My4xOCwyNS4wNnoiIG9wYWNpdHk9Ii4xNSIvPjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik00Ny43NiwxMy41OWMtMC41NCwyLjE4LTIuNTEsMy43OS00Ljg1LDMuNzljLTEuOTQsMC0zLjczLDEuMDQtNC42OCwyLjcyIGMtMC40NywwLjgyLTAuNywxLjcxLTAuNywyLjY1YzAsMC4yNywwLjAzLDAuNTcsMC4xMSwwLjk3YzAuMjcsMS40OS0wLjE1LDMuMDEtMS4xMyw0LjE2Yy0wLjk1LDEuMS0yLjM0LDEuNzQtMy43OSwxLjc0aC0wLjE1IGMtNi42My0wLjItMTMuMTEtMi42Mi0xOC4yNC02LjgxYy0yLjEzLTEuNzUtMi40NS00LjktMC43LTcuMDRjMC4xMS0wLjE0LDAuMjMtMC4yNywwLjM1LTAuMzljNC4wNSw1LjA2LDEwLjc4LDksMTguNzQsOS4yNCBjLTAuMTEtMC42MS0wLjE5LTEuMjMtMC4xOS0xLjg3YzAtMS44NSwwLjQ5LTMuNiwxLjM1LTUuMTFjMS43Ny0zLjE0LDUuMTUtNS4yNiw5LjAzLTUuMjZDNDQuNjYsMTIuMzgsNDYuMzIsMTIuODIsNDcuNzYsMTMuNTl6IiBvcGFjaXR5PSIuMyIvPjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0zNy41MywyNC4yNWMtMC44MjksMC0xLjUtMC42NzEtMS41LTEuNWMwLTEuMjE0LDAuMzAyLTIuMzU2LDAuODk4LTMuMzk2IGMxLjIxLTIuMTQsMy41MDQtMy40NzQsNS45ODEtMy40NzRjMC44MjksMCwxLjUsMC42NzEsMS41LDEuNXMtMC42NzEsMS41LTEuNSwxLjVjLTEuMzk4LDAtMi42OTEsMC43NS0zLjM3NSwxLjk1OCBjLTAuMzQxLDAuNTk2LTAuNTA1LDEuMjE4LTAuNTA1LDEuOTEyQzM5LjAzLDIzLjU3OSwzOC4zNTksMjQuMjUsMzcuNTMsMjQuMjV6Ii8+PC9zdmc+);
+  background-color: white;
+  background-repeat: no-repeat;
+  background-size: 40px;
+  background-position: left;
+}
+.login-with-google-btn:hover {
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+.login-with-google-btn:active {
+  background-color: #eeeeee;
+}
+.login-with-google-btn:focus {
+  outline: none;
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.25),
+    0 0 0 3px #c8dafc;
+}
+.login-with-google-btn:disabled {
+  filter: grayscale(100%);
+  background-color: #ebebeb;
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.25);
+  cursor: not-allowed;
+}
+
+.homePage {
+  width: 100%;
+  min-height: calc(100vh - 80px);
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.homePage .post {
+  width: 600px;
+  height: auto;
+  max-height: 600px;
+  background-color: rgb(250, 250, 250);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.post .postHeader {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.postHeader .title {
+  flex: 50%;
+}
+.postHeader .deletePost {
+  flex: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.deletePost button {
+  border: none;
+
+  background: none;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.post .postTextContainer {
+  word-wrap: break-word;
+  height: auto;
+  max-height: 400px;
+  width: 100%;
+  overflow: hidden;
+  overflow-y: auto;
+}
