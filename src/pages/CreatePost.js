@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection, Timestamp } from 'firebase/firestore';
 import { db, auth } from '../firebase-config';
 import { useNavigate } from 'react-router-dom';
+import { ref, getDownloadURL, uploadBytesResumable } from 'firebase/storage'
 
 function CreatePost({ isAuth }) {
     const [title, setTitle] = useState("");
@@ -19,7 +20,7 @@ function CreatePost({ isAuth }) {
             title,
             postText,
             peripheral: { mouse: Mouse, keyboard: Keyboard, monitor: Monitor, earphone: Earphone },
-            author: { name: auth.currentUser.displayName, id: auth.currentUser.uid }
+            author: { name: auth.currentUser.name, id: auth.currentUser.uid }
         });
         navigate("/");
     };
@@ -34,6 +35,12 @@ function CreatePost({ isAuth }) {
         <div className="createPostPage">
             <div className="cpContainer">
                 <h1>投稿する</h1>
+                <div className="inputImg">
+                    <form className="form">
+                        <input type='file' />
+                        <button type='submit'>アップロード</button>
+                    </form>
+                </div>
                 <div className="inputGp">
                     <label> 投稿タイトル</label>
                     <input
@@ -43,6 +50,7 @@ function CreatePost({ isAuth }) {
                         }}
                     />
                 </div>
+
                 <div className="inputGp">
                     <label> 投稿内容</label>
                     <textarea

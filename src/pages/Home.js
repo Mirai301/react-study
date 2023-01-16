@@ -5,7 +5,8 @@ import { auth, db } from "../firebase-config";
 function Home({ isAuth }) {
   const [postLists, setPostList] = useState([]);
   const postsCollectionRef = collection(db, "posts");
-
+  const usersCollection = collection(db, "users");
+  
   
   const deletePost = async (id) => {
     const postDoc = doc(db, "posts", id);
@@ -18,13 +19,18 @@ function Home({ isAuth }) {
       setPostList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
 
+    const getUsers = async () => {
+      const userdata = await getDocs(usersCollection);
+      console.log(userdata);
+    };
+
     getPosts();
   }, [deletePost]);
 
   return (
     <div className="homePage">
       {postLists.map((post) => {
-        console.log(post);
+        // console.log(post);
         return (
           <div className="post">
             <div className="postHeader">
@@ -32,7 +38,14 @@ function Home({ isAuth }) {
                 <h1> {post.title}</h1>
               </div>
             </div>
-            <div className="postTextContainer"> {post.postText} </div>
+            <div className="postTextContainer"> 
+              <p>{post.postText}</p>
+              <p>{post.peripheral.mouse}</p>
+              <p>{post.peripheral.keyboard}</p>
+              <p>{post.peripheral.monitor}</p>
+              <p>{post.peripheral.earphones}</p>
+            </div>
+
             <h3>@{post.author.name}</h3>
           </div>
         );
