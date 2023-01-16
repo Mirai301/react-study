@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { addDoc, collection, Timestamp } from 'firebase/firestore';
-import { db, auth } from '../firebase-config';
+import { db, auth, storage } from '../firebase-config';
 import { useNavigate } from 'react-router-dom';
 import { ref, getDownloadURL, uploadBytesResumable } from 'firebase/storage'
 
 function CreatePost({ isAuth }) {
+    const [progresspercent, setProgresspercent] = useState(0);
+    const [imgUrl, setImgUrl] = useState("");
     const [title, setTitle] = useState("");
     const [postText, setPostText] = useState("");
     const [Mouse, setMouse] = useState("");
@@ -15,12 +17,40 @@ function CreatePost({ isAuth }) {
     const postsCollectionRef = collection(db, "posts");
     let navigate = useNavigate();
 
+    const uploadImage = (e) => {
+        const file = e.target.files[0]; // ファイル取得方法を変更する必要あり
+        console.log(file);
+        const storageRef = ref(storage, `files/${file.name}`);
+        const uploadTask = uploadBytesResumable(storageRef, file);
+
+        // ランダム文字列の生成
+        // const S = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        // const N = 16;
+        // const fileName = Array.from(crypto.getRandomValues(new Uint32Array(N))).map((n)=>S[n%S.length]).join('')
+
+        // 画像アップロード処理
+        uploadTask.on("state_changed", (snapshot) => {
+            // 処理状況の確認
+            const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+            setProgresspercent(progress);
+        }, // エラー処理
+            (error) => {
+                alert(error);
+            }, // ステートにアップロードした画像URLをセットする
+            () => {
+                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                    setImgUrl(downloadURL);
+                });
+        });
+    }
+ 
     const createPost = async () => {
         await addDoc(postsCollectionRef, {
             title,
+            imgUrl,
             postText,
             peripheral: { mouse: Mouse, keyboard: Keyboard, monitor: Monitor, earphone: Earphone },
-            author: { name: auth.currentUser.name, id: auth.currentUser.uid }
+            author: { name: auth.currentUser.displayName, id: auth.currentUser.uid }
         });
         navigate("/");
     };
@@ -37,8 +67,9 @@ function CreatePost({ isAuth }) {
                 <h1>投稿する</h1>
                 <div className="inputImg">
                     <form className="form">
-                        <input type='file' />
-                        <button type='submit'>アップロード</button>
+                        <input type='file' id="image" 
+                            onChange={(event) => uploadImage(event)}
+                        />
                     </form>
                 </div>
                 <div className="inputGp">

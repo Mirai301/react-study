@@ -39,6 +39,7 @@ function Home({ isAuth }) {
               </div>
             </div>
             <div className="postTextContainer"> 
+              <img src={post.imgUrl} />
               <p>{post.postText}</p>
               <p>{post.peripheral.mouse}</p>
               <p>{post.peripheral.keyboard}</p>
